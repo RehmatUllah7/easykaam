@@ -123,7 +123,8 @@ export const Hero = () => {
       </div>
 
       {/* RIGHT WORDS */}
-      <div className="hidden md:flex absolute right-5 md:right-30 top-1/2 -translate-y-1/2 z-30 flex-col gap-4 md:gap-8">
+      <div className="hidden lg:flex absolute right-10 md:right-40
+ top-1/2 -translate-y-1/2 z-30 flex-col gap-4 md:gap-8">
         {words.map((word, i) => {
           const isActive = i === current;
 

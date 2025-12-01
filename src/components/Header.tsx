@@ -44,12 +44,13 @@ export const Header = () => {
           : "py-6 backdrop-blur-0 shadow-none"
       }`}
     >
-      <div className="relative flex items-center h-20 px-8 lg:px-20 justify-between">
+<div className="relative flex items-center h-20 px-8 lg:px-20 justify-between mr-0 lg:mr-[70px]">
 
         {/* LOGO */}
         <motion.a 
           href="#home" 
-          className="flex items-center gap-4 select-none group ml-[70px] "
+          className="flex items-center gap-4 select-none group ml-0 lg:ml-[70px]"
+
           whileHover={{ scale: 1.02 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
@@ -112,7 +113,7 @@ export const Header = () => {
             relative overflow-hidden group border ${
               isScrolled 
                 ? "border-[#8ac9f4]/30 text-white" 
-                : "border-white/30 text-white"
+                : "border-white/30 text-black"
             } ${
               isButtonClicked
                 ? "bg-linear-to-r from-[#8ac9f4] to-[#6bb5e8]"

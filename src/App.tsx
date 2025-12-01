@@ -1,15 +1,13 @@
 import { Header } from "./components/Header";
+import { Hero } from "./components/Hero";
 
 function App() {
   return (
     <>
       <Header />
-
+<Hero />
       <div className="p-10">
-        <h1 className="text-3xl text-red-100">W </h1>
-        <p className="mt-3 text-black-600">
-     
-        </p>
+        
       </div>
     </>
   );

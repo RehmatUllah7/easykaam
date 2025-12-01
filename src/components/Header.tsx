@@ -49,7 +49,7 @@ export const Header = () => {
         {/* LOGO */}
         <motion.a 
           href="#home" 
-          className="flex items-center gap-4 select-none group "
+          className="flex items-center gap-4 select-none group ml-[70px] "
           whileHover={{ scale: 1.02 }}
           transition={{ type: "spring", stiffness: 300 }}
         >

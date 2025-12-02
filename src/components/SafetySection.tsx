@@ -25,7 +25,7 @@ export const SafetySection = () => {
                   Your Safety is <span className="text-white">Always First</span>
                 </h2>
 
-                <div className="space-y-4 mb-8">
+                <div className="space-y-4 mb-8 ">
                   <p className="font-semibold  md:text-lg opacity-90 text-black leading-relaxed">
                     EasyKaam ensures every task is performed securely with fully verified
                     workers and a trusted monitoring system.

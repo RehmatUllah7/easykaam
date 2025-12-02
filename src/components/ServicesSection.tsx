@@ -1,54 +1,203 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-export const ServicesSection = () => {
-  const themeColor = "#8ac9f4";
+import electricianImg from "../assets/bs1.jpg";
+import plumbingImg from "../assets/bs2.jpg";
+import carpenterImg from "../assets/bs1.jpg";
+import painterImg from "../assets/bs2.jpg";
+import cleaningImg from "../assets/bs1.jpg";
 
-  const services = [
-    { title: "Home Cleaning", desc: "Professional and reliable home cleaning services." },
-    { title: "Electrician", desc: "Certified experts for all electrical repairs and setups." },
-    { title: "Plumbing", desc: "Quick and trusted plumbing solutions for your home." },
-    { title: "AC Repair", desc: "Fast and affordable AC installation and repair." },
-    { title: "Carpentry", desc: "Skilled carpenters for custom furniture and fixes." },
+import { Hammer, Plug   , PaintRoller, Droplet, Sparkles,  } from "lucide-react";
+
+// TYPES
+interface ServiceType {
+  title: string;
+  icon: any;
+  img: string;
+  list: string[];
+}
+
+export default function ServicesSection() {
+  const theme = "#8ac9f4";
+
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [] = useState<number[]>(
+    Array(5).fill(0)
+  );
+
+  const services: ServiceType[] = [
+    {
+      title: "Electrician",
+      icon: Plug ,
+      img: electricianImg,
+      list: [
+        "Electric geyser work",
+        "House electrical work",
+        "Ceiling fan work",
+        "Electric heater work",
+        "Automatic washing machine work",
+        "Generator work",
+        "UPS work",
+        "Switch & socket work",
+        "Decorative lights / lamps",
+        "LCD & LED TV work",
+        "Earth meter / Single phase / 3 phase",
+        "Short circuit repair",
+        "Ceiling wiring work",
+      ],
+    },
+    {
+      title: "Plumber",
+      icon: Droplet,
+      img: plumbingImg,
+      list: [
+        "Gas geyser work",
+        "House plumbing",
+        "Bath shower installation",
+        "Muslim shower installation",
+        "Commode installation / repair",
+        "Drain pipe installation",
+        "Valve work",
+        "Hot & cold water piping",
+        "Pipe leakage / replacement",
+        "Mixer tap work",
+        "Washbasin installation",
+        "Water motor work",
+        "Water tank cleaning",
+        "Oven range service",
+        "Kitchen sink work",
+        "Automatic washing machine work",
+      ],
+    },
+    {
+      title: "Carpenter",
+      icon: Hammer,
+      img: carpenterImg,
+      list: [
+        "Wardrobe repair",
+        "Furniture repair",
+        "General carpenter work",
+        "Door lock work",
+        "Door installation / repair",
+        "Catcher replacement",
+        "Furniture polish",
+      ],
+    },
+    {
+      title: "Painter ",
+      icon: PaintRoller,
+      img: painterImg,
+      list: ["Gray structure paint", "Indoor house paint", "Outdoor house paint"],
+    },
+    {
+      title: "Cleaning Services",
+      icon: Sparkles,
+      img: cleaningImg,
+      list: [
+        "Kitchen cleaning",
+        "Washroom cleaning",
+        "Room cleaning",
+        "Window / glass cleaning",
+        "Fan cleaning",
+        "Floor cleaning",
+        "Deep home cleaning",
+      ],
+    },
   ];
 
+  const toggle = (i: number) => {
+    setOpenIndex(openIndex === i ? null : i);
+  };
+
   return (
-    <section className="relative w-full py-20 px-6 md:px-20 bg-white text-black overflow-hidden">
-      <div className="max-w-7xl mx-auto text-center mb-14">
-        <h2 className="text-3xl md:text-5xl font-extrabold">
-          Our <span style={{ color: themeColor }}>Services</span>
+    <section className="py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-6 md:px-10">
+        <h2 className="text-4xl font-bold text-gray-900 mb-14 text-center">
+          Our Services
         </h2>
-        <p className="text-lg opacity-80 mt-4 max-w-2xl mx-auto">
-          Choose from a variety of trusted and high‑quality services designed for your comfort.
-        </p>
-      </div>
 
-      {/* Services Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
-        {services.map((service, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="p-8 rounded-2xl shadow-xl backdrop-blur-md border border-black/10"
-            style={{ background: "rgba(0,0,0,0.05)" }}
-          >
-            <h3 className="text-2xl font-bold mb-3" style={{ color: themeColor }}>
-              {service.title}
-            </h3>
-            <p className="opacity-80 mb-6">{service.desc}</p>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {services.map((service, index) => {
+            const Icon = service.icon;
 
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              className="px-5 py-2 rounded-xl font-semibold text-black"
-              style={{ backgroundColor: themeColor }}
-            >
-              Explore
-            </motion.button>
-          </motion.div>
-        ))}
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white shadow-lg rounded-2xl overflow-hidden border border-gray-200 hover:shadow-2xl hover:-translate-y-1 transition-all"
+              >
+                {/* IMAGE */}
+                <div className="relative h-44 overflow-hidden">
+                  <motion.img
+                    src={service.img}
+                    alt={service.title}
+                    className="w-full h-full object-cover"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.4 }}
+                  />
+                </div>
+
+                {/* CONTENT */}
+                <div className="p-6">
+                  <div className="flex items-center gap-3 mb-5">
+                    <Icon className="w-10 h-10" style={{ color: theme }} />
+                    <h3 className="text-xl font-semibold text-gray-900">
+                      {service.title}
+                    </h3>
+                  </div>
+
+                  {/* BUTTON WITH ANIMATION */}
+                 <motion.button
+  onClick={() => toggle(index)}
+  initial={{
+    background: "transparent",
+    color: theme,
+    borderColor: theme,
+  }}
+  whileHover={{
+    background: theme,
+    color: "white",
+    borderColor: theme,
+    font:"Bold",
+    scale: 1.03,
+  }}
+  transition={{ duration: 0.25 }}
+  className="w-full py-2 text-sm font-medium rounded-lg border mt-2"
+>
+  {openIndex === index ? "Hide Details" : "View Details"}
+</motion.button>
+
+
+                  {/* DROP DOWN LIST */}
+                  <AnimatePresence>
+                    {openIndex === index && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.35 }}
+                        className="overflow-hidden"
+                      >
+                        <ul className="mt-5 space-y-2 text-gray-700 text-sm">
+                          {service.list.map((item, i) => (
+                            <li key={i} className="flex gap-2">
+                              <span style={{ color: theme }}>•</span>
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
-};
+}

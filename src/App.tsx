@@ -1,19 +1,13 @@
-import { Header } from "./components/Header";
-import { Hero } from "./components/Hero";
-import { SafetySection } from "./components/SafetySection";
-import { AboutSection } from "./components/AboutSection";
-import ServicesSection from "./components/ServicesSection";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
-    <>
-      <Header />
-      <Hero />
-      <AboutSection />
-      <SafetySection />
-      <ServicesSection />
-      <div className="p-10"></div>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+    </Router>
   );
 }
 

@@ -2,7 +2,9 @@ import { Header } from "../components/Header";
 import { Hero } from "../components/Hero";
 import { SafetySection } from "../components/SafetySection";
 import { AboutSection } from "../components/AboutSection";
-import ServicesSection from "../components/ServicesSection";
+import { Faqs } from "../components/Faqs";
+import { Working } from "../components/Working";
+import { Footer } from "../components/Footer";
 
 export default function HomePage() {
   return (
@@ -11,9 +13,12 @@ export default function HomePage() {
       <Hero />
       <AboutSection />
       <SafetySection />
-      <ServicesSection />
+      <Working />
+      <Faqs />
+    
       {/* Optional padding / footer */}
       <div className="p-10"></div>
+        <Footer />
     </div>
   );
 }

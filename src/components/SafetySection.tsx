@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import shieldVideo from "../assets/safety.mp4";
 
 export const SafetySection = () => {
@@ -10,10 +11,10 @@ export const SafetySection = () => {
         {/* MAIN CONTAINER */}
         <div className="relative rounded-2xl overflow-hidden" style={{ backgroundColor: themeColor }}>
           
-          {/* FLEX CONTAINER FOR EQUAL HALVES - Reduced height */}
+          {/* FLEX CONTAINER */}
           <div className="flex flex-col lg:flex-row min-h-[500px] md:min-h-[550px]">
             
-            {/* LEFT HALF - TEXT (50%) */}
+            {/* LEFT HALF */}
             <div className="flex-1 flex flex-col justify-center py-10 md:py-12 px-8 md:px-12 lg:px-16">
               <motion.div
                 initial={{ opacity: 0, x: -40 }}
@@ -37,17 +38,20 @@ export const SafetySection = () => {
                 </div>
               </motion.div>
 
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.97 }}
-                className="px-8 py-3 rounded-xl font-semibold text-base md:text-lg text-black 
-                           shadow-xl bg-white hover:bg-gray-50 transition-colors w-fit mt-4"
-              >
-                Learn More
-              </motion.button>
+              {/* LEARN MORE → SAFETY PAGE */}
+              <Link to="/safety">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="px-8 py-3 rounded-xl font-semibold text-base md:text-lg text-black 
+                             shadow-xl bg-white hover:bg-gray-50 transition-colors w-fit mt-4"
+                >
+                  Learn More
+                </motion.button>
+              </Link>
             </div>
             
-            {/* RIGHT HALF - VIDEO (50%) */}
+            {/* RIGHT HALF - VIDEO */}
             <div className="flex-1 flex items-center justify-center p-4 md:p-6">
               <motion.div
                 initial={{ opacity: 0, x: 40 }}

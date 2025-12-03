@@ -35,7 +35,7 @@ export default function SafetyPage() {
 
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/10" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/30" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/10 to-black/30" />
 
         {/* LEFT SIDE TEXT */}
         <div className="absolute left-8 md:left-40 top-1/2 -translate-y-1/2 z-30 max-w-md flex flex-col gap-6">

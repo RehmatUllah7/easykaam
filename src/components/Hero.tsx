@@ -1,5 +1,7 @@
 import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import bgImage from "../assets/bs1.jpg";
 import bgImage2 from "../assets/bs2.jpg";
 import bgImage3 from "../assets/bs1.jpg";
@@ -14,8 +16,9 @@ export const Hero = () => {
   const [progress, setProgress] = useState(0);
 
   const slides = [bgImage, bgImage2, bgImage3];
-
   const [loaded, setLoaded] = useState(false);
+const navigate = useNavigate();
+
   useEffect(() => {
     Promise.all(
       slides.map(
@@ -60,20 +63,29 @@ export const Hero = () => {
 
   if (!loaded) return null;
 
-  const words = ["Excellence", "Innovation", "Future"];
+  const words = ["On-Time", "Hassle-Free", "Reliable"];
   const themeColor = "#8ac9f4";
 
   const leftTexts = [
-    "Creating world-class experiences with precision",
-    "Innovating every day for a smarter tomorrow",
-    "Shaping the future with passion and purpose"
+    "Service Within 60 Minutes – Fast, Efficient, Done!",
+    "Quick Reworks, Done Right – No Hassle, No Delay",
+    "Trusted Professionals Deliver Quality Work Every Time"
   ];
 
   const slideButtons = [
-    { text: "Get Started", onClick: () => console.log("Slide 1 clicked") },
-    { text: "Learn More", onClick: () => console.log("Slide 2 clicked") },
-    { text: "Join Us", onClick: () => console.log("Slide 3 clicked") }
-  ];
+  {
+    text: "Get the App",
+    onClick: () => navigate("/"),
+  },
+  {
+    text: "Check Services",
+    onClick: () => navigate("/services"),
+  },
+  {
+    text: "View Details",
+    onClick: () => navigate("/about"), 
+  },
+];
 
   return (
     <section
@@ -99,35 +111,59 @@ export const Hero = () => {
       <div className="absolute inset-0 bg-black/5" />
       <div className="absolute inset-0 bg-linear-to-b from-black/5 to-black/20" />
 
-      {/* LEFT TEXT */}
-      <div className="absolute left-10 md:left-40 top-1/2 -translate-y-1/2 z-30 flex flex-col gap-6 md:gap-8 max-w-xs sm:max-w-md md:max-w-xl">
-        <p
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white wrap-break-word"
-          style={{ wordSpacing: "0.2rem" }}
-        >
-          {leftTexts[current]}
-        </p>
+  {/* LEFT TEXT */}
+<div className="absolute left-10 md:left-40 top-1/2 -translate-y-1/2 z-30 flex flex-col gap-6 md:gap-8 max-w-xs sm:max-w-md md:max-w-xl">
 
-        <button
-          onClick={slideButtons[current].onClick}
-          className="mt-4 sm:mt-6 font-semibold rounded-xl inline-flex items-center justify-center whitespace-nowrap px-4 py-2 sm:px-6 sm:py-3 text-base sm:text-lg md:text-xl"
-          style={{
-            backgroundColor: themeColor,
-            color: "black",
-            width: "fit-content",
-            maxWidth: "100%",
-          }}
-        >
-          {slideButtons[current].text}
-        </button>
-      </div>
+  <div className="relative inline-block">
+    {/* Highlight background */}
+    <div
+      className="absolute inset-0 rounded-md -z-10"
+      style={{
+        background: "rgba(138, 201, 244, 0.60)", // light blue highlight
+        transform: "skewX(-6deg) translateY(6px)", // slight tilt like marker
+        padding: "0.2em 0.4em",
+      }}
+    ></div>
+
+    <p
+      className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight wrap-break-word relative"
+      style={{ wordSpacing: "0.2rem" }}
+    >
+      {(() => {
+        const fullText = leftTexts[current];
+        const midpoint = Math.ceil(fullText.length / 2);
+        const firstHalf = fullText.slice(0, midpoint);
+        const secondHalf = fullText.slice(midpoint);
+        return (
+          <>
+            <span className="text-white">{firstHalf}</span>
+            <span className="text-white">{secondHalf}</span>
+          </>
+        );
+      })()}
+    </p>
+  </div>
+
+  <button
+    onClick={slideButtons[current].onClick}
+    className="mt-4 sm:mt-6 font-semibold rounded-xl inline-flex items-center justify-center whitespace-nowrap px-4 py-2 sm:px-6 sm:py-3 text-base sm:text-lg md:text-xl"
+    style={{
+      backgroundColor: themeColor,
+      color: "black",
+      width: "fit-content",
+      maxWidth: "100%",
+    }}
+  >
+    {slideButtons[current].text}
+  </button>
+</div>
+
+
 
       {/* RIGHT WORDS */}
-      <div className="hidden lg:flex absolute right-10 md:right-40
- top-1/2 -translate-y-1/2 z-30 flex-col gap-4 md:gap-8">
+      <div className="hidden lg:flex absolute right-10 md:right-40 top-1/2 -translate-y-1/2 z-30 flex-col gap-4 md:gap-8">
         {words.map((word, i) => {
           const isActive = i === current;
-
           return (
             <p
               key={i}

@@ -12,8 +12,9 @@ export default function HomePage() {
       <Header />
       <Hero />
       <AboutSection />
+            <Working />
+
       <SafetySection />
-      <Working />
       <Faqs />
     
       {/* Optional padding / footer */}

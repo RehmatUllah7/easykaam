@@ -7,9 +7,8 @@ import carpenterImg from "../assets/bs1.jpg";
 import painterImg from "../assets/bs2.jpg";
 import cleaningImg from "../assets/bs1.jpg";
 
-import { Hammer, Plug   , PaintRoller, Droplet, Sparkles,  } from "lucide-react";
+import { Hammer, Plug, PaintRoller, Droplet, Sparkles } from "lucide-react";
 
-// TYPES
 interface ServiceType {
   title: string;
   icon: any;
@@ -19,16 +18,12 @@ interface ServiceType {
 
 export default function ServicesSection() {
   const theme = "#8ac9f4";
-
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const [] = useState<number[]>(
-    Array(5).fill(0)
-  );
 
   const services: ServiceType[] = [
     {
       title: "Electrician",
-      icon: Plug ,
+      icon: Plug,
       img: electricianImg,
       list: [
         "Electric geyser work",
@@ -84,7 +79,7 @@ export default function ServicesSection() {
       ],
     },
     {
-      title: "Painter ",
+      title: "Painter",
       icon: PaintRoller,
       img: painterImg,
       list: ["Gray structure paint", "Indoor house paint", "Outdoor house paint"],
@@ -105,17 +100,35 @@ export default function ServicesSection() {
     },
   ];
 
-  const toggle = (i: number) => {
-    setOpenIndex(openIndex === i ? null : i);
-  };
+  const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
 
   return (
     <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
-        <h2 className="text-4xl font-bold text-gray-900 mb-14 text-center">
-          Our Services
-        </h2>
+        {/* Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-14"
+        >
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900">
+            Our{" "}
+            <span className="relative inline-block" style={{ color: theme }}>
+              Services
+              <span
+                className="absolute left-0 -bottom-2 w-full h-2 rounded-full opacity-40"
+                style={{ backgroundColor: theme }}
+              />
+            </span>
+          </h2>
+          <p className="mt-6 max-w-2xl mx-auto text-lg text-gray-600">
+            Explore our wide range of home services — from electricians and plumbers to carpenters and cleaners, all verified and trusted professionals ready to help.
+          </p>
+        </motion.div>
 
+        {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {services.map((service, index) => {
             const Icon = service.icon;
@@ -150,26 +163,23 @@ export default function ServicesSection() {
                   </div>
 
                   {/* BUTTON WITH ANIMATION */}
-                 <motion.button
-  onClick={() => toggle(index)}
-  initial={{
-    background: "transparent",
-    color: theme,
-    borderColor: theme,
-  }}
-  whileHover={{
-    background: theme,
-    color: "white",
-    borderColor: theme,
-    font:"Bold",
-    scale: 1.03,
-  }}
-  transition={{ duration: 0.25 }}
-  className="w-full py-2 text-sm font-medium rounded-lg border mt-2"
->
-  {openIndex === index ? "Hide Details" : "View Details"}
-</motion.button>
-
+                  <motion.button
+                    onClick={() => toggle(index)}
+                    initial={{
+                      background: "transparent",
+                      color: theme,
+                      borderColor: theme,
+                    }}
+                    whileHover={{
+                      background: theme,
+                      color: "#000",
+                      scale: 1.03,
+                    }}
+                    transition={{ duration: 0.25 }}
+                    className="w-full py-2 text-sm font-medium rounded-lg border mt-2"
+                  >
+                    {openIndex === index ? "Hide Details" : "View Details"}
+                  </motion.button>
 
                   {/* DROP DOWN LIST */}
                   <AnimatePresence>

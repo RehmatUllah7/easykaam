@@ -5,6 +5,7 @@ import { AboutSection } from "../components/AboutSection";
 import { Faqs } from "../components/Faqs";
 import { Working } from "../components/Working";
 import { Footer } from "../components/Footer";
+import { OurVision } from "../components/OurVision";
 
 export default function HomePage() {
   return (
@@ -13,7 +14,7 @@ export default function HomePage() {
       <Hero />
       <AboutSection />
             <Working />
-
+<OurVision />
       <SafetySection />
       <Faqs />
     

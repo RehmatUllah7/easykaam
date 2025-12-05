@@ -8,9 +8,7 @@ export const OurVision = () => {
   return (
     <section className="relative py-12 md:py-20 overflow-hidden bg-white">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <span className="text-sm font-semibold text-blue-600 uppercase tracking-wider">
-              FAQ
-            </span>
+        
         {/* MAIN CONTAINER */}
         <div className="relative rounded-2xl overflow-hidden bg-white shadow-xl">
           

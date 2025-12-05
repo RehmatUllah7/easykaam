@@ -43,22 +43,13 @@ export const Faqs = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center justify-center mb-4">
-            <div className="w-3 h-3 rounded-full bg-blue-500 mr-2"></div>
-           <span className="text-sm font-semibold bg-blue-300 text-black px-3 py-1 rounded-full tracking-wider">
-  FAQ
-</span>
-
-            <div className="w-3 h-3 rounded-full bg-blue-500 ml-2"></div>
-          </div>
+        
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
             Frequently Asked Questions
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Everything you need to know about EasyKaam services. Can't find the answer you're looking for?{" "}
-            <a href="/contact" className="text-blue-600 font-semibold hover:text-blue-700 transition">
-              Contact our support team
-            </a>
+           
           </p>
         </motion.div>
 
@@ -88,12 +79,12 @@ export const Faqs = () => {
                     <div className={`w-8 h-8 rounded-full flex items-center justify-center mr-4 transition-colors ${
                       openIndex === index ? "bg-blue-100" : "bg-gray-100"
                     }`}>
-                      <span className={`font-bold ${openIndex === index ? "text-blue-600" : "text-gray-600"}`}>
+                      <span className={`font-bold ${openIndex === index ? "text-blue-300" : "text-gray-600"}`}>
                         {index + 1}
                       </span>
                     </div>
                     <h3 className={`text-lg md:text-xl font-semibold ${
-                      openIndex === index ? "text-blue-700" : "text-gray-800"
+                      openIndex === index ? "text-blue-300" : "text-gray-800"
                     }`}>
                       {faq.question}
                     </h3>
@@ -103,7 +94,7 @@ export const Faqs = () => {
                     transition={{ duration: 0.3 }}
                     className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
                       openIndex === index 
-                        ? "bg-blue-500 text-white" 
+                        ? "bg-blue-300 text-white" 
                         : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                     }`}
                   >
@@ -156,12 +147,10 @@ export const Faqs = () => {
               We're here to help you with any other questions you might have.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-all duration-300 hover:shadow-lg">
+              <button className="px-8 py-3 bg-blue-300 text-white font-semibold rounded-xl hover:bg-blue-300 transition-all duration-300 hover:shadow-lg">
                 Contact Support
               </button>
-              <button className="px-8 py-3 bg-white text-blue-600 font-semibold rounded-xl border border-blue-200 hover:bg-blue-50 transition-all duration-300">
-                View All 
-              </button>
+             
             </div>
           </div>
         </motion.div>

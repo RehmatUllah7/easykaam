@@ -91,7 +91,7 @@ export const Working = () => {
                     <div className="flex-1">
                       <h3 className="font-bold text-lg md:text-xl text-white mb-1">Choose a Service</h3>
                       <p className="font-semibold text-black leading-relaxed">
-                        Select your city (Islamabad) and pick the service you need—electrician, plumber, AC technician, carpenter, handyman, and more.
+                        Pick the service you need—electrician, plumber, AC technician, carpenter, handyman, and more.
                       </p>
                     </div>
                   </div>

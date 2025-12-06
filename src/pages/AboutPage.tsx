@@ -1,7 +1,11 @@
-// AboutPage.tsx
 import React, { useRef, useState } from "react";
-import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useMotionValueEvent,
+} from "framer-motion";
+
 import { Header } from "../components/Header";
 import { AboutSection } from "../components/AboutSection";
 import { Footer } from "../components/Footer";
@@ -11,11 +15,13 @@ import { OurVision } from "../components/OurVision";
 import heroImage from "../assets/bs2.jpg";
 
 export const AboutPage: React.FC = () => {
-  const ref = useRef(null);
+  const heroRef = useRef(null);
+  const missionRef = useRef<HTMLDivElement | null>(null);
+  const visionRef = useRef<HTMLDivElement | null>(null);
+
   const { scrollY } = useScroll();
   const parallax = useTransform(scrollY, [0, 300], [0, 80]);
   const [roundedY, setRoundedY] = useState(0);
-  const navigate = useNavigate();
 
   useMotionValueEvent(parallax, "change", (latest) => {
     setRoundedY(Math.round(latest));
@@ -24,17 +30,32 @@ export const AboutPage: React.FC = () => {
   const leftText = "Driven by purpose. Powered by people.";
   const themeColor = "#8ac9f4";
 
+  // ✅ SCROLL HANDLERS
+  const scrollToMission = () => {
+    missionRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
+  const scrollToVision = () => {
+    visionRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   return (
     <div className="w-full h-full">
       {/* Header */}
       <Header />
 
-      {/* Hero Section (Same as Services Style) */}
+      {/* ✅ HERO SECTION */}
       <section
-        ref={ref}
+        ref={heroRef}
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
       >
-        {/* Background Image with Parallax */}
+        {/* Background Image */}
         <motion.img
           src={heroImage}
           className="absolute inset-0 w-full h-full object-cover"
@@ -45,9 +66,9 @@ export const AboutPage: React.FC = () => {
         <div className="absolute inset-0 bg-black/10" />
         <div className="absolute inset-0 bg-linear-to-b from-black/10 to-black/30" />
 
-        {/* Left Text + Two Buttons */}
+        {/* Left Content */}
         <div className="absolute left-10 md:left-40 top-1/2 -translate-y-1/2 z-30 flex flex-col gap-6 md:gap-8 max-w-xs sm:max-w-md md:max-w-xl">
-          {/* Skew Highlight Text */}
+          {/* Highlight Text */}
           <div className="relative inline-block">
             <div
               className="absolute inset-0 rounded-md -z-10"
@@ -62,10 +83,10 @@ export const AboutPage: React.FC = () => {
             </p>
           </div>
 
-          {/* Buttons Row */}
+          {/* ✅ BUTTONS → SCROLL TO SECTIONS */}
           <div className="flex gap-4 flex-wrap">
             <button
-              onClick={() => navigate("/contact")}
+              onClick={scrollToMission}
               className="font-semibold rounded-xl inline-flex items-center justify-center whitespace-nowrap px-5 py-3 text-base sm:text-lg"
               style={{ backgroundColor: themeColor, color: "black" }}
             >
@@ -73,7 +94,7 @@ export const AboutPage: React.FC = () => {
             </button>
 
             <button
-              onClick={() => navigate("/services")}
+              onClick={scrollToVision}
               className="font-semibold rounded-xl inline-flex items-center justify-center whitespace-nowrap px-5 py-3 text-base sm:text-lg border bg-white border-white text-black hover:bg-white hover:text-black transition"
             >
               Our Vision
@@ -82,10 +103,19 @@ export const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Main Sections */}
+      {/* ✅ MAIN SECTIONS */}
       <AboutSection />
-      <OurMission />
-      <OurVision />
+
+      {/* ✅ MISSION TARGET */}
+      <div ref={missionRef}>
+        <OurMission />
+      </div>
+
+      {/* ✅ VISION TARGET */}
+      <div ref={visionRef}>
+        <OurVision />
+      </div>
+
       <Footer />
     </div>
   );

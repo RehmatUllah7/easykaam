@@ -6,7 +6,7 @@ export const OurVision = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="relative py-12 md:py-20 overflow-hidden bg-white">
+    <section className="relative py-20 bg-linear-to-br from-[#eaf6ff] via-white to-[#f3fbff] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         
         {/* MAIN CONTAINER */}

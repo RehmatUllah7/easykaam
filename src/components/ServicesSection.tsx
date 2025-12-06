@@ -103,7 +103,7 @@ export default function ServicesSection() {
   const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
 
   return (
-    <section className="py-24 bg-white">
+    <section className="relative py-20 bg-linear-to-br from-[#eaf6ff] via-white to-[#f3fbff] overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         {/* Heading */}
         <motion.div

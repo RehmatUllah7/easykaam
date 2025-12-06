@@ -1,10 +1,13 @@
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
 import about1 from "../assets/bs1.jpg";
 import about2 from "../assets/bs2.jpg";
 import about3 from "../assets/bs1.jpg";
 
 export const AboutSection = () => {
+  const navigate = useNavigate();
   const themeColor = "#8ac9f4";
 
   const features: string[] = [
@@ -15,8 +18,8 @@ export const AboutSection = () => {
   ];
 
   return (
-    <section className="relative py-32 overflow-hidden bg-white">
-      {/* Background */}
+    <section className="relative py-20 bg-linear-to-br from-[#eaf6ff] via-white to-[#f3fbff] overflow-hidden">
+      {/* Background Glow */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute -top-20 -left-20 w-[400px] h-[400px] bg-[#8ac9f4]/20 rounded-full blur-[140px]" />
         <div className="absolute -bottom-20 -right-20 w-[360px] h-[360px] bg-[#4a90e2]/20 rounded-full blur-[140px]" />
@@ -40,12 +43,13 @@ export const AboutSection = () => {
             />
           </span>
         </h2>
+
         <p className="mt-6 max-w-2xl mx-auto text-lg text-gray-600">
           Connecting homes with trusted professionals — fast, safe, and reliable.
         </p>
       </motion.div>
 
-      {/* Content Grid */}
+      {/* Main Grid */}
       <div className="max-w-7xl mx-auto px-6 lg:px-20">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           {/* Left Content */}
@@ -53,6 +57,7 @@ export const AboutSection = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
             className="space-y-8"
           >
             <div className="relative bg-white/90 backdrop-blur-xl p-10 rounded-3xl shadow-xl border border-gray-100">
@@ -81,23 +86,27 @@ export const AboutSection = () => {
                     className="flex items-center gap-3"
                   >
                     <div className="w-5 h-5 rounded-full flex items-center justify-center bg-[#8ac9f4]/20">
-                      <CheckCircle className="w-4 h-4" style={{ color: themeColor }} />
+                      <CheckCircle
+                        className="w-4 h-4"
+                        style={{ color: themeColor }}
+                      />
                     </div>
                     <span className="text-gray-700">{feature}</span>
                   </motion.div>
                 ))}
               </div>
 
-              {/* CTA */}
-              <motion.a
-                href="/services"
+              {/* ✅ Optimized CTA Button */}
+              <motion.button
+                onMouseEnter={() => import("../pages/ServicesPage")}
+                onClick={() => navigate("/services")}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex mt-10 px-8 py-3 rounded-xl font-semibold shadow-md transition"
                 style={{ backgroundColor: themeColor, color: "#000" }}
               >
                 Explore Our Services →
-              </motion.a>
+              </motion.button>
             </div>
           </motion.div>
 
@@ -106,6 +115,7 @@ export const AboutSection = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
             className="relative"
           >
             {/* Main Image */}
@@ -114,30 +124,42 @@ export const AboutSection = () => {
                 src={about2}
                 alt="Service in action"
                 className="w-full h-[420px] object-cover"
+                loading="lazy"
               />
+
               <div className="absolute bottom-4 left-4 bg-white px-4 py-2 rounded-lg shadow">
                 <p className="font-semibold">Serving Islamabad</p>
-                <p className="text-sm text-gray-600">Since 2025</p>
               </div>
             </div>
 
-            {/* Floating Images */}
+            {/* Floating Image 1 */}
             <motion.div
               initial={{ opacity: 0, x: -20, y: -20 }}
               whileInView={{ opacity: 1, x: 0, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
               className="absolute -top-6 -left-6 w-40 h-40 rounded-xl overflow-hidden shadow-lg border-4 border-white"
             >
-              <img src={about1} className="w-full h-full object-cover" />
+              <img
+                src={about1}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
             </motion.div>
 
+            {/* Floating Image 2 */}
             <motion.div
               initial={{ opacity: 0, x: 20, y: 20 }}
               whileInView={{ opacity: 1, x: 0, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
               className="absolute -bottom-10 -right-6 w-48 h-48 rounded-xl overflow-hidden shadow-lg border-4 border-white"
             >
-              <img src={about3} className="w-full h-full object-cover" />
+              <img
+                src={about3}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
             </motion.div>
           </motion.div>
         </div>

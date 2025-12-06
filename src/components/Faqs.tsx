@@ -33,7 +33,7 @@ export const Faqs = () => {
   };
 
   return (
-    <section className="py-20 md:py-28 bg-linear-to-b from-gray-50 to-white">
+    <section className="relative py-20 bg-linear-to-br from-[#eaf6ff] via-white to-[#f3fbff] overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         {/* Header Section */}
         <motion.div

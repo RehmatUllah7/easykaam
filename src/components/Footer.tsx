@@ -1,9 +1,15 @@
 import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
-import logo from "../assets/logo.png"; // ✅ Adjust filename if needed
+import { Link } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 const THEME_COLOR = "#8ac9f4";
 
 export const Footer = () => {
+  const openInNewTab = (path: string) => {
+    const url = `${window.location.origin}${path}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <footer className="bg-[#0f172a] text-gray-300 pt-16">
       <div className="container mx-auto px-6 grid md:grid-cols-4 gap-10">
@@ -18,74 +24,61 @@ export const Footer = () => {
 
         {/* Quick Links */}
         <div>
-          <h3
-            className="text-xl font-semibold mb-4"
-            style={{ color: THEME_COLOR }}
-          >
+          <h3 className="text-xl font-semibold mb-4" style={{ color: THEME_COLOR }}>
             Quick Links
           </h3>
           <ul className="space-y-2">
             <li>
-              <a href="/" className="hover:text-[#8ac9f4] transition">
+              <Link to="/" className="hover:text-[#8ac9f4] transition">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/about" className="hover:text-[#8ac9f4] transition">
+              <Link to="/about" className="hover:text-[#8ac9f4] transition">
                 About Us
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/services" className="hover:text-[#8ac9f4] transition">
+              <Link to="/services" className="hover:text-[#8ac9f4] transition">
                 Services
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/contact" className="hover:text-[#8ac9f4] transition">
+              <Link to="/contact" className="hover:text-[#8ac9f4] transition">
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
 
         {/* Legal Links */}
         <div>
-          <h3
-            className="text-xl font-semibold mb-4"
-            style={{ color: THEME_COLOR }}
-          >
+          <h3 className="text-xl font-semibold mb-4" style={{ color: THEME_COLOR }}>
             Legal
           </h3>
           <ul className="space-y-2">
             <li>
-              <a
-                href="/privacy-policy"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => openInNewTab("/privacy-policy")}
                 className="hover:text-[#8ac9f4] transition"
               >
                 Privacy Policy
-              </a>
+              </button>
             </li>
             <li>
-              <a
-                href="/terms"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => openInNewTab("/terms")}
                 className="hover:text-[#8ac9f4] transition"
               >
                 Terms & Conditions
-              </a>
+              </button>
             </li>
           </ul>
         </div>
 
         {/* Contact & Social */}
         <div>
-          <h3
-            className="text-xl font-semibold mb-4"
-            style={{ color: THEME_COLOR }}
-          >
+          <h3 className="text-xl font-semibold mb-4" style={{ color: THEME_COLOR }}>
             Contact
           </h3>
           <p className="mb-2">Islamabad, Pakistan</p>
@@ -93,18 +86,21 @@ export const Footer = () => {
           <p className="mb-4">Email: support@easykaam.com</p>
 
           <div className="flex space-x-3">
-            {[{ Icon: Facebook, link: "#" }, { Icon: Twitter, link: "#" }, { Icon: Instagram, link: "#" }, { Icon: Linkedin, link: "#" }].map(
-              ({ Icon, link }, index) => (
-                <a
-                  key={index}
-                  href={link}
-                  className="p-2 rounded-full transition hover:scale-110"
-                  style={{ backgroundColor: THEME_COLOR }}
-                >
-                  <Icon className="w-5 h-5 text-black" />
-                </a>
-              )
-            )}
+            {[
+              { Icon: Facebook, link: "#" },
+              { Icon: Twitter, link: "#" },
+              { Icon: Instagram, link: "#" },
+              { Icon: Linkedin, link: "#" },
+            ].map(({ Icon, link }, index) => (
+              <a
+                key={index}
+                href={link}
+                className="p-2 rounded-full transition hover:scale-110"
+                style={{ backgroundColor: THEME_COLOR }}
+              >
+                <Icon className="w-5 h-5 text-black" />
+              </a>
+            ))}
           </div>
         </div>
       </div>

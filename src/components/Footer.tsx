@@ -1,87 +1,116 @@
 import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
-import { Link } from "react-router-dom";
+import logo from "../assets/logo.png"; // ✅ Adjust filename if needed
+
+const THEME_COLOR = "#8ac9f4";
 
 export const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-gray-200 pt-12">
-      <div className="container mx-auto px-6 grid md:grid-cols-4 gap-8">
+    <footer className="bg-[#0f172a] text-gray-300 pt-16">
+      <div className="container mx-auto px-6 grid md:grid-cols-4 gap-10">
         {/* Logo & About */}
         <div>
-          <h2 className="text-2xl font-bold text-white mb-4">EasyKaam</h2>
-          <p className="text-gray-400">
-            EasyKaam provides verified professionals for all your home and office services with reliable, fast, and quality support.
+          <img src={logo} alt="EasyKaam Logo" className="w-36 mb-4" />
+          <p className="text-gray-400 leading-relaxed">
+            EasyKaam provides verified professionals for all your home and office
+            services with reliable, fast, and quality support.
           </p>
         </div>
 
         {/* Quick Links */}
         <div>
-          <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
+          <h3
+            className="text-xl font-semibold mb-4"
+            style={{ color: THEME_COLOR }}
+          >
+            Quick Links
+          </h3>
           <ul className="space-y-2">
             <li>
-              <Link to="/" className="hover:text-blue-500 transition">Home</Link>
+              <a href="/" className="hover:text-[#8ac9f4] transition">
+                Home
+              </a>
             </li>
             <li>
-              <Link to="/about" className="hover:text-blue-500 transition">About Us</Link>
+              <a href="/about" className="hover:text-[#8ac9f4] transition">
+                About Us
+              </a>
             </li>
             <li>
-              <Link to="/services" className="hover:text-blue-500 transition">Services</Link>
+              <a href="/services" className="hover:text-[#8ac9f4] transition">
+                Services
+              </a>
             </li>
             <li>
-              <Link to="/contact" className="hover:text-blue-500 transition">Contact</Link>
+              <a href="/contact" className="hover:text-[#8ac9f4] transition">
+                Contact
+              </a>
             </li>
           </ul>
         </div>
 
         {/* Legal Links */}
         <div>
-          <h3 className="text-xl font-semibold mb-4">Legal</h3>
+          <h3
+            className="text-xl font-semibold mb-4"
+            style={{ color: THEME_COLOR }}
+          >
+            Legal
+          </h3>
           <ul className="space-y-2">
             <li>
-              <Link to="/privacy-policy" className="hover:text-blue-500 transition">Privacy Policy</Link>
+              <a
+                href="/privacy-policy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#8ac9f4] transition"
+              >
+                Privacy Policy
+              </a>
             </li>
             <li>
-              <Link to="/terms" className="hover:text-blue-500 transition">Terms & Conditions</Link>
+              <a
+                href="/terms"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#8ac9f4] transition"
+              >
+                Terms & Conditions
+              </a>
             </li>
           </ul>
         </div>
 
-        {/* Contact & Newsletter */}
+        {/* Contact & Social */}
         <div>
-          <h3 className="text-xl font-semibold mb-4">Contact & Updates</h3>
-          <p className="mb-2">123 EasyKaam Street, City, Country</p>
-          <p className="mb-2">Phone: +123 456 7890</p>
+          <h3
+            className="text-xl font-semibold mb-4"
+            style={{ color: THEME_COLOR }}
+          >
+            Contact
+          </h3>
+          <p className="mb-2">Islamabad, Pakistan</p>
+          <p className="mb-2">Phone: +92 300 1234567</p>
           <p className="mb-4">Email: support@easykaam.com</p>
 
-          <div className="flex space-x-3 mb-4">
-            <a href="#" className="bg-blue-600 hover:bg-blue-700 p-2 rounded-full transition">
-              <Facebook className="w-5 h-5 text-white" />
-            </a>
-            <a href="#" className="bg-blue-600 hover:bg-blue-700 p-2 rounded-full transition">
-              <Twitter className="w-5 h-5 text-white" />
-            </a>
-            <a href="#" className="bg-blue-600 hover:bg-blue-700 p-2 rounded-full transition">
-              <Instagram className="w-5 h-5 text-white" />
-            </a>
-            <a href="#" className="bg-blue-600 hover:bg-blue-700 p-2 rounded-full transition">
-              <Linkedin className="w-5 h-5 text-white" />
-            </a>
-          </div>
-
-          <div className="flex items-center">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="px-3 py-2 rounded-l-lg focus:outline-none text-gray-800 flex-1"
-            />
-            <button className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-r-lg text-white font-semibold transition">
-              Subscribe
-            </button>
+          <div className="flex space-x-3">
+            {[{ Icon: Facebook, link: "#" }, { Icon: Twitter, link: "#" }, { Icon: Instagram, link: "#" }, { Icon: Linkedin, link: "#" }].map(
+              ({ Icon, link }, index) => (
+                <a
+                  key={index}
+                  href={link}
+                  className="p-2 rounded-full transition hover:scale-110"
+                  style={{ backgroundColor: THEME_COLOR }}
+                >
+                  <Icon className="w-5 h-5 text-black" />
+                </a>
+              )
+            )}
           </div>
         </div>
       </div>
 
-      {/* Bottom */}
-      <div className="border-t border-gray-700 mt-8 pt-6 text-center text-gray-500">
+      {/* Bottom Bar */}
+      <div className="border-t border-gray-700 mt-12 py-6 text-center text-gray-500">
         &copy; {new Date().getFullYear()} EasyKaam. All rights reserved.
       </div>
     </footer>

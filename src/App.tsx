@@ -7,6 +7,8 @@ import SafetyPage from "./pages/SafetyPage";
 import { ServicesPage } from "./pages/ServicesPage";
 import { AboutPage } from "./pages/AboutPage";
 import { Contact } from "./pages/ContactPage";
+import { PrivacyPolicyPage } from "./pages/PrivacyPolicyPage";
+import { TermsConditionsPage } from "./pages/TermsConditionsPage";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+<Route path="/terms" element={<TermsConditionsPage />} />  {/* ✅ CATCH-ALL ROUTE */}
       </Routes>
     </Router>
   );

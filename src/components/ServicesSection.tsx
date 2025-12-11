@@ -103,61 +103,62 @@ export default function ServicesSection() {
   const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
 
   return (
-    <section className="relative py-20 bg-linear-to-br from-[#eaf6ff] via-white to-[#f3fbff] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
+    <section className="relative py-10 sm:py-14 md:py-20 bg-linear-to-br from-[#eaf6ff] via-white to-[#f3fbff] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-14"
+          className="text-center mb-8 sm:mb-10 md:mb-14 px-2"
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900">
             Our{" "}
             <span className="relative inline-block" style={{ color: theme }}>
               Services
               <span
-                className="absolute left-0 -bottom-2 w-full h-2 rounded-full opacity-40"
+                className="absolute left-0 -bottom-1 sm:-bottom-2 w-full h-1 sm:h-2 rounded-full opacity-40"
                 style={{ backgroundColor: theme }}
               />
             </span>
           </h2>
-          <p className="mt-6 max-w-2xl mx-auto text-lg text-gray-600">
+          <p className="mt-3 sm:mt-4 md:mt-6 max-w-2xl mx-auto text-sm sm:text-base md:text-lg text-gray-600 px-2">
             Explore our wide range of home services — from electricians and plumbers to carpenters and cleaners, all verified and trusted professionals ready to help.
           </p>
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
           {services.map((service, index) => {
             const Icon = service.icon;
 
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white shadow-lg rounded-2xl overflow-hidden border border-gray-200 hover:shadow-2xl hover:-translate-y-1 transition-all"
+                className="bg-white shadow-md sm:shadow-lg rounded-xl sm:rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl sm:hover:shadow-2xl hover:-translate-y-1 transition-all"
               >
                 {/* IMAGE */}
-                <div className="relative h-44 overflow-hidden">
+                <div className="relative h-32 sm:h-36 md:h-40 lg:h-44 overflow-hidden">
                   <motion.img
                     src={service.img}
                     alt={service.title}
                     className="w-full h-full object-cover"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.4 }}
+                    loading="lazy"
                   />
                 </div>
 
                 {/* CONTENT */}
-                <div className="p-6">
-                  <div className="flex items-center gap-3 mb-5">
-                    <Icon className="w-10 h-10" style={{ color: theme }} />
-                    <h3 className="text-xl font-semibold text-gray-900">
+                <div className="p-4 sm:p-5 md:p-6">
+                  <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4 md:mb-5">
+                    <Icon className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10" style={{ color: theme }} />
+                    <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900">
                       {service.title}
                     </h3>
                   </div>
@@ -176,7 +177,7 @@ export default function ServicesSection() {
                       scale: 1.03,
                     }}
                     transition={{ duration: 0.25 }}
-                    className="w-full py-2 text-sm font-medium rounded-lg border mt-2"
+                    className="w-full py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-lg sm:rounded-lg border mt-1 sm:mt-2"
                   >
                     {openIndex === index ? "Hide Details" : "View Details"}
                   </motion.button>
@@ -191,11 +192,11 @@ export default function ServicesSection() {
                         transition={{ duration: 0.35 }}
                         className="overflow-hidden"
                       >
-                        <ul className="mt-5 space-y-2 text-gray-700 text-sm">
+                        <ul className="mt-3 sm:mt-4 md:mt-5 space-y-1.5 sm:space-y-2 text-gray-700 text-xs sm:text-sm">
                           {service.list.map((item, i) => (
-                            <li key={i} className="flex gap-2">
-                              <span style={{ color: theme }}>•</span>
-                              {item}
+                            <li key={i} className="flex gap-1.5 sm:gap-2 items-start">
+                              <span className="mt-0.5" style={{ color: theme }}>•</span>
+                              <span className="flex-1">{item}</span>
                             </li>
                           ))}
                         </ul>

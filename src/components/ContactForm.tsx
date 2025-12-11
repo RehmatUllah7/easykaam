@@ -58,33 +58,35 @@ export const ContactForm = () => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: -50 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
       className="
         bg-white 
-        px-8 py-10 md:px-12
-        rounded-3xl 
-        shadow-[0_12px_40px_rgba(138,201,244,0.25)] 
-        border border-blue-100
-        ml-0 md:ml-6 lg:ml-10
+        px-5 sm:px-6 md:px-8 lg:px-12 
+        py-8 sm:py-9 md:py-10
+        rounded-2xl sm:rounded-3xl 
+        shadow-[0_8px_30px_rgba(138,201,244,0.15)] sm:shadow-[0_12px_40px_rgba(138,201,244,0.25)]
+        border border-blue-50 sm:border-blue-100
+        w-full
+        mx-auto
       "
     >
       {/* Heading */}
-      <div className="mb-8">
-        <h2 className="text-3xl font-extrabold text-gray-800">
+      <div className="mb-6 sm:mb-8">
+        <h2 className="text-2xl sm:text-3xl md:text-3xl font-extrabold text-gray-800">
           Contact Us
         </h2>
-        <p className="text-gray-500 mt-2">
+        <p className="text-gray-500 mt-1.5 sm:mt-2 text-sm sm:text-base">
           Give Feedback or Ask a Question
         </p>
       </div>
 
-      <form className="space-y-6" onSubmit={handleSubmit}>
+      <form className="space-y-4 sm:space-y-5 md:space-y-6" onSubmit={handleSubmit}>
         {/* Full Name */}
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2">
             Full Name
           </label>
           <input
@@ -93,16 +95,16 @@ export const ContactForm = () => {
             value={formData.name}
             onChange={handleChange}
             placeholder="Enter your full name"
-            className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#8ac9f4] transition shadow-sm"
+            className="w-full px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg sm:rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#8ac9f4] transition shadow-sm text-sm sm:text-base"
           />
           {errors.name && (
-            <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+            <p className="text-red-500 text-xs sm:text-sm mt-1">{errors.name}</p>
           )}
         </div>
 
         {/* Email */}
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2">
             Email Address
           </label>
           <input
@@ -111,23 +113,23 @@ export const ContactForm = () => {
             value={formData.email}
             onChange={handleChange}
             placeholder="Enter your email"
-            className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#8ac9f4] transition shadow-sm"
+            className="w-full px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg sm:rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#8ac9f4] transition shadow-sm text-sm sm:text-base"
           />
           {errors.email && (
-            <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+            <p className="text-red-500 text-xs sm:text-sm mt-1">{errors.email}</p>
           )}
         </div>
 
         {/* Service (Optional) */}
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2">
             Select Service (Optional)
           </label>
           <select
             name="service"
             value={formData.service}
             onChange={handleChange}
-            className="w-full px-5 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#8ac9f4] transition shadow-sm"
+            className="w-full px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg sm:rounded-xl border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#8ac9f4] transition shadow-sm text-sm sm:text-base"
           >
             <option value="">Choose a service</option>
             <option value="electrician">Electrician</option>
@@ -140,26 +142,26 @@ export const ContactForm = () => {
 
         {/* Comment */}
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2">
             Comments
           </label>
           <textarea
             name="comment"
             value={formData.comment}
             onChange={handleChange}
-            rows={4}
+            rows={3}
             placeholder="Write your message..."
-            className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#8ac9f4] transition shadow-sm resize-none"
+            className="w-full px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg sm:rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#8ac9f4] transition shadow-sm resize-none text-sm sm:text-base"
           />
           {errors.comment && (
-            <p className="text-red-500 text-sm mt-1">{errors.comment}</p>
+            <p className="text-red-500 text-xs sm:text-sm mt-1">{errors.comment}</p>
           )}
         </div>
 
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full bg-[#8ac9f4] text-black py-3 rounded-xl font-bold text-lg hover:scale-[1.02] hover:shadow-xl transition-all duration-300"
+          className="w-full bg-[#8ac9f4] text-black py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-bold text-base sm:text-lg hover:scale-[1.02] hover:shadow-lg sm:hover:shadow-xl transition-all duration-300"
         >
           Submit
         </button>

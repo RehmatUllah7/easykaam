@@ -2,9 +2,9 @@ import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-mot
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import bgImage from "../assets/bs1.jpg";
-import bgImage2 from "../assets/bs2.jpg";
-import bgImage3 from "../assets/bs1.jpg";
+import bgImage from "../assets/download1.jpg";
+import bgImage2 from "../assets/2.png";
+import bgImage3 from "../assets/download9.png";
 
 export const Hero = () => {
   const ref = useRef(null);

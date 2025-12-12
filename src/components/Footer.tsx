@@ -91,33 +91,36 @@ export const Footer = () => {
               </h3>
               <div className="space-y-3 mb-6">
                 <p className="text-sm md:text-base">Islamabad, Pakistan</p>
-                <p className="text-sm md:text-base">Phone: +92 300 1234567</p>
-                <p className="text-sm md:text-base">Email: support@easykaam.com</p>
+                <p className="text-sm md:text-base">Phone: +92 315 6192 920</p>
+                <p className="text-sm md:text-base">Email: easykaam2025@gmail.com</p>
               </div>
 
-              <div>
-                <p className="text-sm font-medium mb-3" style={{ color: THEME_COLOR }}>
-                  Follow Us
-                </p>
-                <div className="flex space-x-4">
-                  {[
-                    { Icon: Facebook, link: "#", label: "Facebook" },
-                    { Icon: Twitter, link: "#", label: "Twitter" },
-                    { Icon: Instagram, link: "#", label: "Instagram" },
-                    { Icon: Linkedin, link: "#", label: "LinkedIn" },
-                  ].map(({ Icon, link, label }, index) => (
-                    <a
-                      key={index}
-                      href={link}
-                      className="p-2 rounded-full transition hover:scale-110 hover:opacity-90"
-                      style={{ backgroundColor: THEME_COLOR }}
-                      aria-label={`Follow us on ${label}`}
-                    >
-                      <Icon className="w-5 h-5 text-black" />
-                    </a>
-                  ))}
-                </div>
-              </div>
+             <div>
+  <p className="text-sm font-medium mb-3" style={{ color: THEME_COLOR }}>
+    Follow Us
+  </p>
+  <div className="flex space-x-4">
+    {[
+      { Icon: Facebook, link: "https://www.facebook.com/profile.php?id=61583519567698", label: "Facebook" },
+      { Icon: Twitter, link: "#", label: "Twitter" },
+  { Icon: Instagram, link: "https://www.instagram.com/easykaam_/", label: "Instagram" },
+      { Icon: Linkedin, link: "#", label: "LinkedIn" },
+    ].map(({ Icon, link, label }, index) => (
+      <a
+        key={index}
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="p-2 rounded-full transition hover:scale-110 hover:opacity-90"
+        style={{ backgroundColor: THEME_COLOR }}
+        aria-label={`Follow us on ${label}`}
+      >
+        <Icon className="w-5 h-5 text-black" />
+      </a>
+    ))}
+  </div>
+</div>
+
             </div>
           </div>
 

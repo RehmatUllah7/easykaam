@@ -22,9 +22,7 @@ export const ContactForm = () => {
   const validate = () => {
     const newErrors: any = {};
 
-    if (!formData.name.trim()) {
-      newErrors.name = "Full name is required";
-    }
+    if (!formData.name.trim()) newErrors.name = "Full name is required";
 
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
@@ -32,28 +30,18 @@ export const ContactForm = () => {
       newErrors.email = "Enter a valid email address";
     }
 
-    if (!formData.comment.trim()) {
+    if (!formData.comment.trim())
       newErrors.comment = "Comment field cannot be empty";
-    }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!validate()) return;
-
-    console.log("Form Submitted:", formData);
-
-    setFormData({
-      name: "",
-      email: "",
-      service: "",
-      comment: "",
-    });
-
-    setErrors({});
+    // prevent only on invalid form
+    if (!validate()) {
+      e.preventDefault();
+    }
   };
 
   return (
@@ -83,7 +71,18 @@ export const ContactForm = () => {
         </p>
       </div>
 
-      <form className="space-y-4 sm:space-y-5 md:space-y-6" onSubmit={handleSubmit}>
+      {/* FORM SUBMISSION TO GMAIL */}
+      <form
+        className="space-y-4 sm:space-y-5 md:space-y-6"
+        onSubmit={handleSubmit}
+        action="https://formsubmit.co/faraz.ahmed.cs.7427@gmail.com"
+        method="POST"
+      >
+        {/* Hidden Settings */}
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_subject" value="New Contact Form Message" />
+
         {/* Full Name */}
         <div>
           <label className="block text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2">
@@ -98,7 +97,9 @@ export const ContactForm = () => {
             className="w-full px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg sm:rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#8ac9f4] transition shadow-sm text-sm sm:text-base"
           />
           {errors.name && (
-            <p className="text-red-500 text-xs sm:text-sm mt-1">{errors.name}</p>
+            <p className="text-red-500 text-xs sm:text-sm mt-1">
+              {errors.name}
+            </p>
           )}
         </div>
 
@@ -116,11 +117,13 @@ export const ContactForm = () => {
             className="w-full px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg sm:rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#8ac9f4] transition shadow-sm text-sm sm:text-base"
           />
           {errors.email && (
-            <p className="text-red-500 text-xs sm:text-sm mt-1">{errors.email}</p>
+            <p className="text-red-500 text-xs sm:text-sm mt-1">
+              {errors.email}
+            </p>
           )}
         </div>
 
-        {/* Service (Optional) */}
+        {/* Service */}
         <div>
           <label className="block text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2">
             Select Service (Optional)
@@ -154,7 +157,9 @@ export const ContactForm = () => {
             className="w-full px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg sm:rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#8ac9f4] transition shadow-sm resize-none text-sm sm:text-base"
           />
           {errors.comment && (
-            <p className="text-red-500 text-xs sm:text-sm mt-1">{errors.comment}</p>
+            <p className="text-red-500 text-xs sm:text-sm mt-1">
+              {errors.comment}
+            </p>
           )}
         </div>
 

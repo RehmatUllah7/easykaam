@@ -1,7 +1,7 @@
 import { Header } from "../components/Header";
 import { motion } from "framer-motion";
 import { useRef } from "react";
-import safetyBg from "../assets/bs1.jpg";
+import safetyBg from "../assets/download1.jpg";
 import { Tips } from "../components/Tips";
 import { SafetyFeatures } from "../components/SafetyFeatures ";
 import { Footer } from "../components/Footer";

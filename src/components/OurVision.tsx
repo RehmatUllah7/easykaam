@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import visionImage from "../assets/bs1.jpg"; // Replace with your vision image
+import visionImage from "../assets/2048 (6).webp"; // Replace with your vision image
 import { useNavigate } from "react-router-dom";
 
 export const OurVision = () => {

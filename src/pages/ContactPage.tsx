@@ -8,7 +8,7 @@ import {
 import { Header } from "../components/Header";
 import { ContactForm } from "../components/ContactForm";
 import { ContactInfo } from "../components/ContactInfo";
-import contactImg from "../assets/bs1.jpg";
+import contactImg from "../assets/contactus.png";
 import { Footer } from "../components/Footer";
 
 export const Contact: React.FC = () => {

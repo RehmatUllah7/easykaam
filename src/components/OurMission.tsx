@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import missionImage from "../assets/bs1.jpg";
+import missionImage from "../assets/2048 (8).webp";
 
 export const OurMission = () => {
   const themeColor = "#8ac9f4";

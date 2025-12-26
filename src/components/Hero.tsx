@@ -2,9 +2,9 @@ import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-mot
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import bgImage from "../assets/download1.jpg";
-import bgImage2 from "../assets/2.png";
-import bgImage3 from "../assets/download9.png";
+import bgImage from "../assets/20.webp";
+import bgImage2 from "../assets/Grey Black Page Livre Logo (500 x 700 px).png";
+import bgImage3 from "../assets/2048 (10).webp";
 
 export const Hero = () => {
   const ref = useRef(null);
@@ -97,14 +97,18 @@ const navigate = useNavigate();
         <motion.img
           key={i}
           src={src}
-          className="absolute inset-0 w-full h-full object-cover"
-          initial={false}
+          className={`absolute inset-0 w-full object-cover ${
+    i === 1
+      ? "h-[170%] -top-[60.5%] object-top"
+      : "h-full object-center"
+  }`}
           animate={{
             opacity: i === current ? 1 : 0,
             scale: i === current ? 1 : 1.02,
           }}
           transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1], opacity: { duration: 1.2 } }}
-          style={{ transform: `translate3d(0, ${roundedY}px, 0)` }}
+          style={{  transform: `translate3d(0, ${roundedY}px, 0)` }}
+
         />
       ))}
 

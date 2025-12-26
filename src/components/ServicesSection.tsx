@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import electricianImg from "../assets/bs1.jpg";
-import plumbingImg from "../assets/bs2.jpg";
-import carpenterImg from "../assets/bs1.jpg";
-import painterImg from "../assets/bs2.jpg";
-import cleaningImg from "../assets/bs1.jpg";
+import electricianImg from "../assets/electrician.png";
+import plumbingImg from "../assets/plumber.png";
+import carpenterImg from "../assets/carpenter.png";
+import painterImg from "../assets/Outdoor house paint.png";
+import cleaningImg from "../assets/Room cleaning.png";
 
 import { Hammer, Plug, PaintRoller, Droplet, Sparkles } from "lucide-react";
 

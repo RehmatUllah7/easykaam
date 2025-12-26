@@ -6,7 +6,7 @@ import { Header } from "../components/Header";
 import ServicesSection from "../components/ServicesSection";
 import { Footer } from "../components/Footer";
 
-import bgImage from "../assets/bs1.jpg";
+import bgImage from "../assets/2048 (3).webp";
 
 export const ServicesPage: React.FC = () => {
   const ref = useRef(null);

@@ -12,7 +12,7 @@ import { Footer } from "../components/Footer";
 import { OurMission } from "../components/OurMission";
 import { OurVision } from "../components/OurVision";
 
-import heroImage from "../assets/bs2.jpg";
+import heroImage from "../assets/2048 (11).webp";
 
 export const AboutPage: React.FC = () => {
   const heroRef = useRef(null);

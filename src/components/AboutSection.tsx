@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-import about1 from "../assets/bs1.jpg";
-import about2 from "../assets/bs2.jpg";
-import about3 from "../assets/bs1.jpg";
+import about1 from "../assets/2048.webp";
+import about2 from "../assets/aaa.png";
+import about3 from "../assets/2048 (1).webp";
 
 export const AboutSection = () => {
   const navigate = useNavigate();

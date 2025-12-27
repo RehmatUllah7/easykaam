@@ -7,9 +7,9 @@ import {
   ChevronRight,
 } from "lucide-react";
 
-import safetyVideo1 from "../assets/ec.mp4";
-import safetyVideo2 from "../assets/safety.mp4";
-import safetyVideo3 from "../assets/ec.mp4";
+import safetyVideo1 from "../assets/ea.mp4";
+import safetyVideo2 from "../assets/ee.mp4";
+import safetyVideo3 from "../assets/ed.mp4";
 
 const VIDEO_POSITION = "top center";
 

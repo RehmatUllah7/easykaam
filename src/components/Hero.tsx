@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import bgImage from "../assets/20.webp";
-import bgImage2 from "../assets/Grey Black Page Livre Logo (500 x 700 px).png";
+import bgImage2 from "../assets/40.png";
 import bgImage3 from "../assets/2048 (10).webp";
 
 export const Hero = () => {

@@ -7,7 +7,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 
-import tipsVideo1 from "../assets/ec.mp4";
+import tipsVideo1 from "../assets/ea.mp4";
 import tipsVideo2 from "../assets/safety.mp4";
 import tipsVideo3 from "../assets/ea.mp4";
 

@@ -68,6 +68,14 @@ export const Footer = () => {
                     Terms & Conditions
                   </button>
                 </li>
+                  <li>
+                  <button
+                    onClick={() => openInNewTab("/delete-account")}
+                    className="hover:text-[#8ac9f4] transition"
+                  >
+                    Delete Account
+                  </button>
+                </li>
               </ul>
             </div>
 

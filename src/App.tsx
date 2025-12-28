@@ -9,6 +9,7 @@ import { AboutPage } from "./pages/AboutPage";
 import { Contact } from "./pages/ContactPage";
 import { PrivacyPolicyPage } from "./pages/PrivacyPolicyPage";
 import { TermsConditionsPage } from "./pages/TermsConditionsPage";
+import { DeleteAccountPage } from "./pages/Delete-account";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+        <Route path="/delete-account" element={<DeleteAccountPage />} />  
 <Route path="/terms" element={<TermsConditionsPage />} />  {/* ✅ CATCH-ALL ROUTE */}
       </Routes>
     </Router>
